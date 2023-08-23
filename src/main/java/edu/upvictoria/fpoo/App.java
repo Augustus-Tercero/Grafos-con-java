@@ -12,14 +12,13 @@ public class App
         System.out.println("Grafo Dirigido:");
         directedGraph.printGraph();
 
-        Graph<Integer> undirectedGraph = new UndirectedGraph<>();
-        undirectedGraph.addVertex(1);
-        undirectedGraph.addVertex(2);
-        undirectedGraph.addVertex(3);
-        undirectedGraph.addEdge(1, 2);
-        undirectedGraph.addEdge(2, 3);
+        Graph<String> undirectedGraph = new UndirectedGraph<>();
+        undirectedGraph.addVertex("A");
+        undirectedGraph.addVertex("B");
+        undirectedGraph.addVertex("C");
+        undirectedGraph.addEdge("A", "B");
+        undirectedGraph.addEdge("B", "C");
         System.out.println("Grafo No Dirigido:");
         undirectedGraph.printGraph();
-
     }
 }

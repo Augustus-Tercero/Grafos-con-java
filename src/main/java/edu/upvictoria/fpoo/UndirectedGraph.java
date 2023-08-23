@@ -4,34 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-class UndirectedGraph<T> extends Graph<T> {
+public class UndirectedGraph<T> extends Graph<T> {
     public UndirectedGraph() {
         super();
     }
 
     @Override
-    public void addVertex(T vertex) {
-        if (!hasVertex(vertex)) {
-            vertices.put(vertex, new ArrayList<>());
-        }
-    }
-
-    @Override
     public void addEdge(T sourceVertex, T destinationVertex) {
         if (hasVertex(sourceVertex) && hasVertex(destinationVertex)) {
-            vertices.get(sourceVertex).add(destinationVertex);
-            vertices.get(destinationVertex).add(sourceVertex); // Since it's an undirected graph
+            List<Nodo<T>> sourceNeighbors = vertices.get(sourceVertex);
+            List<Nodo<T>> destinationNeighbors = vertices.get(destinationVertex);
+
+            sourceNeighbors.add(new Nodo<>(destinationVertex));
+            destinationNeighbors.add(new Nodo<>(sourceVertex)); // Since it's an undirected graph
         }
     }
 
     @Override
     public void printGraph() {
-        for (Map.Entry<T, List<T>> entry : vertices.entrySet()) {
+        for (Map.Entry<T, List<Nodo<T>>> entry : vertices.entrySet()) {
             T vertex = entry.getKey();
-            List<T> neighbors = entry.getValue();
+            List<Nodo<T>> neighbors = entry.getValue();
             System.out.print(vertex + " -> ");
-            for (T neighbor : neighbors) {
-                System.out.print(neighbor + " ");
+            for (Nodo<T> neighbor : neighbors) {
+                System.out.print(neighbor.getData() + " ");
             }
             System.out.println();
         }

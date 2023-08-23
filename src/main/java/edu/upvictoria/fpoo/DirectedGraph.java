@@ -10,32 +10,33 @@ public class DirectedGraph<T> extends Graph<T> {
     }
 
     @Override
-    public void addVertex(T vertex) {
-        if (!vertices.containsKey(vertex)) {
-            vertices.put(vertex, new ArrayList<>());
-        }
-    }
-
-    @Override
     public void addEdge(T sourceVertex, T destinationVertex) {
         if (vertices.containsKey(sourceVertex) && vertices.containsKey(destinationVertex)) {
-            vertices.get(sourceVertex).add(destinationVertex);
+            List<Nodo<T>> neighbors = vertices.get(sourceVertex);
+            neighbors.add(new Nodo<>(destinationVertex)); // Crear un nuevo Nodo y agregarlo a la lista de vecinos
         }
     }
 
     public boolean hasEdge(T source, T destination) {
-        List<T> neighbors = vertices.get(source);
-        return neighbors != null && neighbors.contains(destination);
+        List<Nodo<T>> neighbors = vertices.get(source);
+        if (neighbors != null) {
+            for (Nodo<T> neighbor : neighbors) {
+                if (neighbor.getData().equals(destination)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     @Override
     public void printGraph() {
         for (T vertex : vertices.keySet()) {
-            List<T> neighbors = vertices.get(vertex);
+            List<Nodo<T>> neighbors = vertices.get(vertex);
             if (neighbors != null) {
                 System.out.print(vertex + " -> ");
-                for (T neighbor : neighbors) {
-                    System.out.print(neighbor + " ");
+                for (Nodo<T> neighbor : neighbors) {
+                    System.out.print(neighbor.getData() + " ");
                 }
                 System.out.println();
             }
