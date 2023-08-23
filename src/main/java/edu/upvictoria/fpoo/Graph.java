@@ -1,8 +1,6 @@
 package edu.upvictoria.fpoo;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public abstract class Graph<T> implements GraphUtils<T> {
     protected Map<T, List<T>> vertices;
@@ -26,4 +24,5 @@ public abstract class Graph<T> implements GraphUtils<T> {
     public boolean hasVertex(T vertex) {
         return vertices.containsKey(vertex);
     }
+
 }
