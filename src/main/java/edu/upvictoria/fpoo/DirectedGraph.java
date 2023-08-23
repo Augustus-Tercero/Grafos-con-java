@@ -13,7 +13,7 @@ public class DirectedGraph<T> extends Graph<T> {
     public void addEdge(T sourceVertex, T destinationVertex) {
         if (vertices.containsKey(sourceVertex) && vertices.containsKey(destinationVertex)) {
             List<Nodo<T>> neighbors = vertices.get(sourceVertex);
-            neighbors.add(new Nodo<>(destinationVertex)); // Crear un nuevo Nodo y agregarlo a la lista de vecinos
+            neighbors.add(new Nodo<>(destinationVertex));
         }
     }
 

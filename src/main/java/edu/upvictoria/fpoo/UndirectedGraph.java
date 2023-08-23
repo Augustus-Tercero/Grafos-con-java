@@ -16,7 +16,7 @@ public class UndirectedGraph<T> extends Graph<T> {
             List<Nodo<T>> destinationNeighbors = vertices.get(destinationVertex);
 
             sourceNeighbors.add(new Nodo<>(destinationVertex));
-            destinationNeighbors.add(new Nodo<>(sourceVertex)); // Since it's an undirected graph
+            destinationNeighbors.add(new Nodo<>(sourceVertex));
         }
     }
 

@@ -136,7 +136,7 @@ agregar tanto al vértice de destino como al vecino:
             List<Nodo<T>> destinationNeighbors = vertices.get(destinationVertex);
 
             sourceNeighbors.add(new Nodo<>(destinationVertex));
-            destinationNeighbors.add(new Nodo<>(sourceVertex)); // Since it's an undirected graph
+            destinationNeighbors.add(new Nodo<>(sourceVertex));
         }
    } 
 ```
@@ -177,7 +177,7 @@ añade una nueva arista:
     public void addEdge(T sourceVertex, T destinationVertex) {
         if (vertices.containsKey(sourceVertex) && vertices.containsKey(destinationVertex)) {
             List<Nodo<T>> neighbors = vertices.get(sourceVertex);
-            neighbors.add(new Nodo<>(destinationVertex)); // Crear un nuevo Nodo y agregarlo a la lista de vecinos
+            neighbors.add(new Nodo<>(destinationVertex));
         }
     }
 ```
